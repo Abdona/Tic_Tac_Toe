@@ -68,13 +68,13 @@ puts "+---+---+---+
 | #{sq31.prnt} | #{sq32.prnt} | #{sq33.prnt} |
 +---+---+---+
 "
-value = ["o","x"]
+value = %w[o x]
 r_val = rand(2)
 puts 'Welcome to Tic Tac Toe'
 puts 'please enter first player name'
 first_player = Player.new(gets.chomp, value[r_val])
 puts 'please enter second player name'
-second_player = Player.new(gets.chomp, value.select { |itm| itm != value[r_val] })
+second_player = Player.new(gets.chomp, value.reject { |itm| itm == value[r_val] })
 i = 0
 player_turn = 'one'
 
@@ -86,7 +86,12 @@ while i < 9
     cell_number = gets.chomp.to_i
     choose_cell(cell_number, board)
   end
-  player_turn == 'one' ? board[cell_number].change_cell(first_player.getter_val) : board[cell_number].change_cell(second_player.getter_val)
+
+  if player_turn == 'one'
+    board[cell_number].change_cell(first_player.getter_val)
+  else
+    board[cell_number].change_cell(second_player.getter_val)
+  end
   player_turn = player_turn.next_player
 
   puts "+---+---+---+
