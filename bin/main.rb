@@ -8,6 +8,9 @@ class Player
   def getter_val
     @val
   end
+  def getter_name
+    @name
+  end
 end
 
 class Cell
@@ -26,6 +29,7 @@ class Cell
   end
 
   def change_cell(parm)
+    #print parm
     @value = parm
   end
 end
@@ -37,6 +41,12 @@ def next_player
 
   'one'
 end
+
+# module Screen
+#     def self.clear
+#         print "\e[2J\e[f"
+#     end
+# end
 
 def choose_cell(parm, boar_parm)
   if boar_parm[parm].check_cell
@@ -74,27 +84,31 @@ puts 'Welcome to Tic Tac Toe'
 puts 'please enter first player name'
 first_player = Player.new(gets.chomp, value[r_val])
 puts 'please enter second player name'
-second_player = Player.new(gets.chomp, value.reject { |itm| itm == value[r_val] })
+second_player = Player.new(gets.chomp, value.reject { |itm| itm == value[r_val] }[0])
 i = 0
 player_turn = 'one'
+puts "#{first_player.getter_name} will play with #{value[r_val]} and #{second_player.getter_name} will play with #{value.reject { |itm| itm == value[r_val]}[0]} "
 
 while i < 9
-  i += 1
-  puts "player #{player_turn} turn"
-  cell_number = gets.chomp.to_i
-  until choose_cell(cell_number, board)
+    i += 1
+    puts player_turn == 'one' ? "It's #{first_player.getter_name}'s' turn!" : "It's #{second_player.getter_name}'s' turn!"
+    puts "please select an available cell from the board (1-9)"
     cell_number = gets.chomp.to_i
-    choose_cell(cell_number, board)
-  end
-
-  if player_turn == 'one'
-    board[cell_number].change_cell(first_player.getter_val)
-  else
-    board[cell_number].change_cell(second_player.getter_val)
-  end
-  player_turn = player_turn.next_player
-
-  puts "+---+---+---+
+    until choose_cell(cell_number, board)
+        cell_number = gets.chomp.to_i
+        choose_cell(cell_number, board)
+    end
+    
+    if player_turn == 'one'
+        #print first_player.getter_val
+        board[cell_number].change_cell(first_player.getter_val)
+    else
+        #print second_player.getter_val
+        board[cell_number].change_cell(second_player.getter_val)
+    end
+    player_turn = player_turn.next_player
+    
+    puts "+---+---+---+
 | #{sq11.prnt} | #{sq12.prnt} | #{sq13.prnt} |
 +---+---+---+
 | #{sq21.prnt} | #{sq22.prnt} | #{sq23.prnt} |
