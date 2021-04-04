@@ -152,3 +152,5 @@ while i < 9
 +---+---+---+
 "
 end
+
+puts "#{first_player.getter_name} is the winner"
