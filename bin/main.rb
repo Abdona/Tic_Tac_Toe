@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/gamelogic.rb'
+require_relative '../lib/gamelogic'
 
 class Player
-  attr_reader :val , :name
+  attr_reader :val, :name
+
   def initialize(name, val)
     @name = name
     @val = val
@@ -18,6 +19,7 @@ end
 
 class Cell
   attr_accessor :value
+
   def initialize(value)
     @value = value.to_s
   end
@@ -47,7 +49,7 @@ def choose_cell(parm, boar_parm)
 end
 
 def validate(param)
-  return false if param > 8 || param < 0
+  return false if param > 8 || param.negative?
 
   true
 end
@@ -98,16 +100,16 @@ while i < 9
   i += 1
   puts player_turn == 'one' ? "It's #{first_player.name}'s' turn!" : "It's #{second_player.name}'s' turn!"
   puts 'please select an available cell from the board (1-9)'
-  cell_number = (gets.chomp.to_i) - 1
+  cell_number = gets.chomp.to_i - 1
   until validate(cell_number)
     puts 'Invalid Input, please select an available cell from the board (1-9)'
-    cell_number = (gets.chomp.to_i) - 1
+    cell_number = gets.chomp.to_i - 1
   end
   until choose_cell(cell_number, board)
-    cell_number = (gets.chomp.to_i) - 1
+    cell_number = gets.chomp.to_i - 1
     until validate(cell_number)
       puts 'Invalid Input, please select an available cell from the board (1-9)'
-      cell_number = (gets.chomp.to_i) - 1
+      cell_number = gets.chomp.to_i - 1
     end
     choose_cell(cell_number, board)
   end
