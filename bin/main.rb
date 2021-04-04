@@ -15,9 +15,9 @@ class Player
 
   def validate
     return true if @name =~ /\w/
+
     false
   end
-
 end
 
 class Cell
@@ -97,13 +97,13 @@ puts 'Welcome to Tic Tac Toe'
 puts 'please enter first player name'
 first_player = Player.new(gets.chomp, value[r_val])
 until first_player.validate
-  puts "please enter a valid player name"
-  first_player = Player.new(gets.chomp,value[r_val])
+  puts 'please enter a valid player name'
+  first_player = Player.new(gets.chomp, value[r_val])
 end
 puts 'please enter second player name'
 second_player = Player.new(gets.chomp, value.reject { |itm| itm == value[r_val] }[0])
 until second_player.validate
-  puts "please enter a valid player name"
+  puts 'please enter a valid player name'
   second_player = Player.new(gets.chomp, value.reject { |itm| itm == value[r_val] }[0])
 end
 i = 0
