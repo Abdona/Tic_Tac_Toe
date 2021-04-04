@@ -8,6 +8,7 @@ class Player
   def getter_val
     @val
   end
+
   def getter_name
     @name
   end
@@ -29,7 +30,7 @@ class Cell
   end
 
   def change_cell(parm)
-    #print parm
+    # print parm
     @value = parm
   end
 end
@@ -87,28 +88,34 @@ puts 'please enter second player name'
 second_player = Player.new(gets.chomp, value.reject { |itm| itm == value[r_val] }[0])
 i = 0
 player_turn = 'one'
-puts "#{first_player.getter_name} will play with #{value[r_val]} and #{second_player.getter_name} will play with #{value.reject { |itm| itm == value[r_val]}[0]} "
+
+out1 = "#{first_player.getter_name} will play with #{value[r_val]} and"
+out2 = " #{second_player.getter_name} will play with #{value.reject do |itm|
+  itm == value[r_val]
+end [0]} "
+
+puts out1 + out2
 
 while i < 9
-    i += 1
-    puts player_turn == 'one' ? "It's #{first_player.getter_name}'s' turn!" : "It's #{second_player.getter_name}'s' turn!"
-    puts "please select an available cell from the board (1-9)"
+  i += 1
+  puts player_turn == 'one' ? "It's #{first_player.getter_name}'s' turn!" : "It's #{second_player.getter_name}'s' turn!"
+  puts 'please select an available cell from the board (1-9)'
+  cell_number = gets.chomp.to_i
+  until choose_cell(cell_number, board)
     cell_number = gets.chomp.to_i
-    until choose_cell(cell_number, board)
-        cell_number = gets.chomp.to_i
-        choose_cell(cell_number, board)
-    end
-    
-    if player_turn == 'one'
-        #print first_player.getter_val
-        board[cell_number].change_cell(first_player.getter_val)
-    else
-        #print second_player.getter_val
-        board[cell_number].change_cell(second_player.getter_val)
-    end
-    player_turn = player_turn.next_player
-    
-    puts "+---+---+---+
+    choose_cell(cell_number, board)
+  end
+
+  if player_turn == 'one'
+    # print first_player.getter_val
+    board[cell_number].change_cell(first_player.getter_val)
+  else
+    # print second_player.getter_val
+    board[cell_number].change_cell(second_player.getter_val)
+  end
+  player_turn = player_turn.next_player
+
+  puts "+---+---+---+
 | #{sq11.prnt} | #{sq12.prnt} | #{sq13.prnt} |
 +---+---+---+
 | #{sq21.prnt} | #{sq22.prnt} | #{sq23.prnt} |
