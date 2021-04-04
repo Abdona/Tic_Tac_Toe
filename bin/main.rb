@@ -59,10 +59,9 @@ def choose_cell(parm, boar_parm)
 end
 
 def validate(param)
-    if (param > 9 || param < 1)
-        return false
-    end
-    true
+  return false if param > 9 || param < 1
+
+  true
 end
 
 sq11 = Cell.new('1')
@@ -109,14 +108,14 @@ while i < 9
   puts 'please select an available cell from the board (1-9)'
   cell_number = gets.chomp.to_i
   until validate(cell_number)
-    puts "Invalid Input"
+    puts 'Invalid Input'
     cell_number = gets.chomp.to_i
   end
   until choose_cell(cell_number, board)
     cell_number = gets.chomp.to_i
     until validate(cell_number)
-        puts "Invalid Input"
-        cell_number = gets.chomp.to_i
+      puts 'Invalid Input'
+      cell_number = gets.chomp.to_i
     end
     choose_cell(cell_number, board)
   end
