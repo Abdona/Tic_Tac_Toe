@@ -12,6 +12,12 @@ class Player
   def getter_name
     @name
   end
+
+  def validate
+    return true if @name =~ /\w/
+    false
+  end
+
 end
 
 class Cell
@@ -90,8 +96,16 @@ r_val = rand(2)
 puts 'Welcome to Tic Tac Toe'
 puts 'please enter first player name'
 first_player = Player.new(gets.chomp, value[r_val])
+until first_player.validate
+  puts "please enter a valid player name"
+  first_player = Player.new(gets.chomp,value[r_val])
+end
 puts 'please enter second player name'
 second_player = Player.new(gets.chomp, value.reject { |itm| itm == value[r_val] }[0])
+until second_player.validate
+  puts "please enter a valid player name"
+  second_player = Player.new(gets.chomp, value.reject { |itm| itm == value[r_val] }[0])
+end
 i = 0
 player_turn = 'one'
 
@@ -108,13 +122,13 @@ while i < 9
   puts 'please select an available cell from the board (1-9)'
   cell_number = gets.chomp.to_i
   until validate(cell_number)
-    puts 'Invalid Input'
+    puts 'Invalid Input, please select an available cell from the board (1-9)'
     cell_number = gets.chomp.to_i
   end
   until choose_cell(cell_number, board)
     cell_number = gets.chomp.to_i
     until validate(cell_number)
-      puts 'Invalid Input'
+      puts 'Invalid Input, please select an available cell from the board (1-9)'
       cell_number = gets.chomp.to_i
     end
     choose_cell(cell_number, board)
