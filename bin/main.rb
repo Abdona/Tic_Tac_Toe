@@ -123,5 +123,7 @@ while i < 9
   end
   player_turn = player_turn.next_player
   board_3x3.display_board
+  board_3x3.to_2d
+  puts board_3x3.check_vertical_horinzontal
 end
 puts "#{first_player.name} is the winner"
