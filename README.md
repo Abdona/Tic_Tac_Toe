@@ -24,12 +24,12 @@ winner.
 
 # Install Instruction
 
-1. Clone the Repo on you computer
-2. make sure you have Ruby installed; use 'Ruby -v' to check for Ruby preexistence.
-3. open you terminal and go to the rebo location folder
-4. open 'bin' folder
-5. run ruby main.rb
-
+1. open your terminal in the location you want to install the project in.
+2. Clone the Repo on you computer using `git clone https://github.com/Abdona/Tic_Tac_Toe.git`
+3. make sure you have Ruby installed; use `Ruby -v` to check for Ruby preexistence.
+4. cd to the project directory`cd Tic_Tac_Toe/bin` 
+5. run `ruby main.rb`
+- nb. if you do not have ruby already installed kindly check this link for instruction how to install it on your OS `https://www.ruby-lang.org/en/documentation/installation/`
 # Author
 
 # 👤 Abdulrahman Naser
