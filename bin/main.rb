@@ -6,6 +6,16 @@ require_relative '../lib/cell'
 
 public
 
+def display_board(param)
+  puts '+---+---+---+'
+  puts "| #{param[0]} | #{param[1]} | #{param[2]} | "
+  puts '+---+---+---+'
+  puts "| #{param[3]} | #{param[4]} | #{param[5]} |"
+  puts '+---+---+---+'
+  puts "| #{param[6]} | #{param[7]} | #{param[8]} |"
+  puts '+---+---+---+'
+end
+
 def next_player
   return 'two' if self == 'one'
 
@@ -43,7 +53,7 @@ board1 = [sq11.value, sq12.value, sq13.value, sq21.value, sq22.value, sq23.value
 board = [sq11, sq12, sq13, sq21, sq22, sq23, sq31, sq32, sq33]
 
 board_3x3 = Board.new(board1)
-board_3x3.display_board
+display_board(board1)
 value = %w[o x]
 r_val = rand(2)
 puts 'Welcome to Tic Tac Toe'
@@ -95,7 +105,7 @@ while i < 9
     board1[cell_number] = second_player.val
   end
   player_turn = player_turn.next_player
-  board_3x3.display_board
+  display_board(board1)
   board_3x3.to_2d
   win_result = board_3x3.check_win
   break if win_result
