@@ -125,9 +125,9 @@ while i < 9
   board_3x3.display_board
   board_3x3.to_2d
   win_result = board_3x3.check_win
-  break unless win_result
+  break if win_result
 end
 puts 'Game is draw' unless win_result
 outt1 = "#{first_player.name} is the winner"
 outt2 = "#{second_player.name} is the winner"
-win_result == first_player.val ? out1 : out2
+puts win_result == first_player.val ? outt1 : outt2
