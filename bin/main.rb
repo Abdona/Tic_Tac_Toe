@@ -1,35 +1,8 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/gamelogic'
-
-class Player
-  attr_reader :val, :name
-
-  def initialize(name, val)
-    @name = name
-    @val = val
-  end
-
-  def validate
-    return true if @name =~ /\w/
-
-    false
-  end
-end
-
-class Cell
-  attr_accessor :value
-
-  def initialize(value)
-    @value = value.to_s
-  end
-
-  def check_cell
-    return false if @value == 'x' || @value == 'o'
-
-    true
-  end
-end
+require_relative '../lib/board'
+require_relative '../lib/player'
+require_relative '../lib/cell'
 
 public
 
@@ -127,7 +100,10 @@ while i < 9
   win_result = board_3x3.check_win
   break if win_result
 end
-puts 'Game is draw' unless win_result
 outt1 = "#{first_player.name} is the winner"
 outt2 = "#{second_player.name} is the winner"
-puts win_result == first_player.val ? outt1 : outt2
+if win_result == first_player.val
+  puts outt1
+else
+  puts(win_result == second_player.val ? outt2 : 'Game is draw')
+end

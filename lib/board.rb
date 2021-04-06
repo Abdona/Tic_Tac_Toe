@@ -13,10 +13,7 @@ class Board
       for j in (0...3)
         @board2d[i][j] = @board_cell[j + (i * 3)]
       end
-      # @board_cell1.shift(3)
     end
-    # print @board2d
-    # print @board_cell
   end
 
   def display_board
