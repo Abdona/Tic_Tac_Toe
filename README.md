@@ -8,7 +8,8 @@
 
 
   <asciinema-player src="/405500.cast" cols="80" rows="23"></asciinema-player>
-[![asciicast](https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA.svg)](https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA)
+<a href="https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA?autoplay=1" target="_blank"><img src="https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA.svg" /></a>
+
 
 # Install Instruction
 
