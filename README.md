@@ -7,8 +7,7 @@
 # Game Preview
 
 
-  <asciinema-player src="/405500.cast" cols="80" rows="23"></asciinema-player>
-<a href="https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA?autoplay=1" target="_blank"><img src="https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA.svg" /></a>
+ <a href="https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA?autoplay=1"><img src="https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA.svg" /></a>
 
 
 # Install Instruction
