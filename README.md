@@ -4,6 +4,18 @@
 
 - its a two player board game. The board consists of 9 cells (3x3). player 1 goes with 'x' for example then player 2 goes with 'o'. if any of the two player can sit a 3 consecutive x's or o's either horizontal ,vertical or even diagonal ,then this player considered as the winner.
 
+# Technologies Used
+
+- Ruby
+
+# RULES FOR TIC-TAC-TOE.
+- The game is played on a grid that's 3 squares by 3 squares.
+- You are X, your friend is O. You are O, your friend is X.
+- The first player to get 3 of his/her marks in a row (up, down, across, or diagonally) is the
+winner.
+- When all 9 squares are full, the game is over.
+- if no player get 3 of his/her marks in a row, The game is draw.
+
 # Game Preview
 
 
