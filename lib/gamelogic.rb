@@ -15,7 +15,7 @@ class Board
       end
       # @board_cell1.shift(3)
     end
-    print @board2d
+    # print @board2d
     # print @board_cell
   end
 
@@ -29,17 +29,24 @@ class Board
     puts '+---+---+---+'
   end
 
-  def check_vertical_horinzontal
+  def check_win
     x = %w[x x x]
     o = %w[o o o]
-    for i in @board2d
+    for i in @board2d # #check horizontal
       return 'x' if i == x
       return 'o' if i == o
     end
-    for i in @board2d.transpose
+    for i in @board2d.transpose # #check vertical
       return 'x' if i == x
       return 'o' if i == o
     end
+    return check_diagonal unless false
+    false
+  end
+
+  def check_diagonal
+    return @board2d[1][1] if @board2d[1][1] == @board2d[0][0] && @board2d[1][1] == @board2d[2][2] # ##check diagonal
+    return @board2d[1][1] if @board2d[1][1] == @board2d[0][2] && @board2d[1][1] == @board2d[2][0]
     false
   end
 end

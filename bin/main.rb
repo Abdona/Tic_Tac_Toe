@@ -124,6 +124,10 @@ while i < 9
   player_turn = player_turn.next_player
   board_3x3.display_board
   board_3x3.to_2d
-  puts board_3x3.check_vertical_horinzontal
+  win_result = board_3x3.check_win
+  break unless win_result
 end
-puts "#{first_player.name} is the winner"
+puts 'Game is draw' unless win_result
+outt1 = "#{first_player.name} is the winner"
+outt2 = "#{second_player.name} is the winner"
+win_result == first_player.val ? out1 : out2
