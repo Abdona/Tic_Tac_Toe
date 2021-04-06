@@ -19,7 +19,7 @@ winner.
 # Game Preview
 
 
- <a href="https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA?autoplay=1"><img src="https://asciinema.org/a/W6ZqcgVVx4wOJ3KtM69I2g3DA.svg" /></a>
+![Game preview](gamepreview.gif)
 
 
 # Install Instruction
