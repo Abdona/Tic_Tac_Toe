@@ -34,7 +34,8 @@ class Board
     end
     check_diagonal
   end
-
+  
+  private
   def check_diagonal
     return @board2d[1][1] if @board2d[1][1] == @board2d[0][0] && @board2d[1][1] == @board2d[2][2] # ##check diagonal
     return @board2d[1][1] if @board2d[1][1] == @board2d[0][2] && @board2d[1][1] == @board2d[2][0]
