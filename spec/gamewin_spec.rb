@@ -1,4 +1,5 @@
 require './lib/board'
+require './lib/player'
 
 describe Board do
   describe '#check_win' do
@@ -29,6 +30,23 @@ describe Board do
     it 'check draw cases' do
       board = Board.new(%w[x o x x o o o x x])
       expect(board.check_win).to eql(false)
+    end
+  end
+end
+
+describe Player do
+  describe '#validate' do
+    it 'check name validation-expected true' do
+      player = Player.new('Abdulrahman', 'x')
+      expect(player.validate).to eql(true)
+    end
+    it 'check name validation-expected fale' do
+      player = Player.new('   ', 'o')
+      expect(player.validate).to eql(false)
+    end
+    it 'check name validation-expected fale' do
+      player = Player.new('', 'o')
+      expect(player.validate).to eql(false)
     end
   end
 end

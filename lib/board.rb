@@ -8,6 +8,8 @@ class Board
     @board_cell = board_cell # #1d array [1,2,3,4,5,6,7,8,9]
   end
 
+  private
+
   def to_2d
     for i in (0...3)
       for j in (0...3)
@@ -15,6 +17,8 @@ class Board
       end
     end
   end
+
+  public
 
   def check_win
     to_2d
