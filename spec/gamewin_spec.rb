@@ -1,5 +1,6 @@
 require './lib/board'
 require './lib/player'
+require './lib/cell'
 
 describe Board do
   describe '#check_win' do
@@ -44,9 +45,26 @@ describe Player do
       player = Player.new('   ', 'o')
       expect(player.validate).to eql(false)
     end
-    it 'check name validation-expected fale' do
+    it 'check name validation-expected false' do
       player = Player.new('', 'o')
       expect(player.validate).to eql(false)
+    end
+  end
+end
+
+describe Cell do
+  describe '#check_cell' do
+    it 'check cell validation-expected false' do
+      cell = Cell.new('x')
+      expect(cell.check_cell).to eql(false)
+    end
+    it 'check name validation-expected fale' do
+      cell = Cell.new('o')
+      expect(cell.check_cell).to eql(false)
+    end
+    it 'check name validation-expected true' do
+      cell = Cell.new('1')
+      expect(cell.check_cell).to eql(true)
     end
   end
 end
