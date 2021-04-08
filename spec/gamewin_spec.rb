@@ -66,5 +66,9 @@ describe Cell do
       cell = Cell.new('1')
       expect(cell.check_cell).to eql(true)
     end
+    it 'check name validation-expected true' do
+      cell = Cell.new('')
+      expect(cell.check_cell).to eql(true)
+    end
   end
 end
