@@ -1,4 +1,4 @@
-require '../lib/board'
+require './lib/board'
 
 describe Board do
   describe '#check_win' do
