@@ -106,7 +106,6 @@ while i < 9
   end
   player_turn = player_turn.next_player
   display_board(board1)
-  board_3x3.to_2d
   win_result = board_3x3.check_win
   break if win_result
 end

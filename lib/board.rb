@@ -17,6 +17,7 @@ class Board
   end
 
   def check_win
+    to_2d
     x = %w[x x x]
     o = %w[o o o]
     for i in @board2d # #check horizontal
@@ -27,7 +28,6 @@ class Board
       return 'x' if i == x
       return 'o' if i == o
     end
-
     check_diagonal
   end
 
